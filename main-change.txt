@@ -1,0 +1,3 @@
+This file simulates a change on main branch for rebase demonstration.
+
+Step: Added on main branch after feature branch was created.
