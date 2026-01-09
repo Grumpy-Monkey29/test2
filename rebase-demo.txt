@@ -1,0 +1,4 @@
+This is a demo file for rebase tutorial.
+
+Step 1: Created a new branch 'feature/rebase-demo'.
+Step 2: Added this file to demonstrate a commit.
