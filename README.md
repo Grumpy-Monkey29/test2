@@ -1,0 +1,4 @@
+- ServiceA acts as the proxy — k6 always speaks plain HTTP to it, and ServiceA handles the REST-vs-gRPC split internally. Both paths hit identical processing logic in ServiceB, isolating the protocol overhead.
+- Key design decisions
+  - ServiceA gRPC client is a singleton — one persistent HTTP/2 connection with multiplexed streams, exactly how you'd use gRPC in production. REST uses a fresh connection per request (axios default), making the comparison fair at the protocol level.
+  - ServiceB proto defines one RPC: ProcessData(DataRequest) → DataResponse. Both the REST and gRPC handler run the same CPU work so you're purely measuring serialization + transport.
